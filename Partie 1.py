@@ -30,10 +30,10 @@ class ButtonsPanel(QWidget):
         self.setLayout(self.layout)
 
 class LabeledTextField(QWidget):
-    def __init__(self):
-        QWidget.__init__(self)
+    def __init__(self,text):
+        QWidget.__init__(self,text)
         self.layout = QHBoxLayout()
-        self.label = QLabel("text")
+        self.label = QLabel(text)
         self.text = QTextEdit()
         self.text.setMaximumHeight(30)
         self.layout.addWidget(self.label)
@@ -41,7 +41,7 @@ class LabeledTextField(QWidget):
         self.setLayout(self.layout)
 
 class ConfigurationDialog(QDialog):
-    def __init__(self):
+    def __init__(self,text):
         QDialog.__init__(self)
         self.layout = QVBoxLayout()
         ipadress = LabeledTextField("IP adress")
