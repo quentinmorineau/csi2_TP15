@@ -31,7 +31,7 @@ class ButtonsPanel(QWidget):
 
 class LabeledTextField(QWidget):
     def __init__(self,text):
-        QWidget.__init__(self,text)
+        QWidget.__init__(self)
         self.layout = QHBoxLayout()
         self.label = QLabel(text)
         self.text = QTextEdit()
@@ -41,15 +41,15 @@ class LabeledTextField(QWidget):
         self.setLayout(self.layout)
 
 class ConfigurationDialog(QDialog):
-    def __init__(self,text):
+    def __init__(self):
         QDialog.__init__(self)
         self.layout = QVBoxLayout()
-        ipadress = LabeledTextField("IP adress")
-        user = LabeledTextField("user")
-        password = LabeledTextField("password")
-        self.layout.addWidget(ipadress)
-        self.layout.addWidget(user)
-        self.layout.addWidget(password)
+        self.ipadress = LabeledTextField("IP adress")
+        self.user = LabeledTextField("user")
+        self.password = LabeledTextField("password")
+        self.layout.addWidget(self.ipadress)
+        self.layout.addWidget(self.user)
+        self.layout.addWidget(self.password)
         self.setLayout(self.layout)
 
 a = SQLClientWindow()
